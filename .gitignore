@@ -9,3 +9,8 @@ __pycache__/
 
 # Ignore virtual environment
 venv/
+
+# Ignore coverage
+*.coverage
+
+./app_python/visits
