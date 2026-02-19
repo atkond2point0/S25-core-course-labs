@@ -1,8 +1,9 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: app-python
 spec:
+  serviceName: {{ include "app-python.fullname" . }}-headless
   replicas: 3
   selector:
     matchLabels:
