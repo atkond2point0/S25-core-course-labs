@@ -4,7 +4,7 @@ metadata:
   name: app-python
 spec:
   serviceName: {{ include "app-python.fullname" . }}-headless
-  replicas: 3
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: app-python
@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
         - name: app-python
-          image: atkond/flask-app:latest
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: 5000 
+            - containerPort: {{ .Values.service.port }}
+
